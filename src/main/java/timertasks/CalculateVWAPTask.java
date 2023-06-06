@@ -15,6 +15,9 @@ public class CalculateVWAPTask extends TimerTask {
   private final VolumeWeightedAveragePriceCalculator vwapCalculator;
   private final VolumeCalculator volumeCalculator;
 
+  private static final String USD = "USD";
+  private static final String BTC = "BTC";
+
   public CalculateVWAPTask(Deque<TradeEntry> tradeHistory) {
     this.tradeHistory = tradeHistory;
     this.vwapCalculator = new VolumeWeightedAveragePriceCalculator();
@@ -51,10 +54,10 @@ public class CalculateVWAPTask extends TimerTask {
       BigDecimal volumeForLastTwoMinutes,
       BigDecimal volumeForLastTenMinutes) {
     System.out.println("\nTime of calculation: " + now);
-    System.out.println("VWAP    2 minutes:  " + vwapForLastTwoMinutes);
-    System.out.println("VWAP   10 minutes:  " + vwapForLastTenMinutes);
-    System.out.println("Volume  2 minutes:  " + volumeForLastTwoMinutes);
-    System.out.println("Volume 10 minutes:  " + volumeForLastTenMinutes);
+    System.out.println("VWAP    2 minutes:  " + vwapForLastTwoMinutes + " " + USD);
+    System.out.println("VWAP   10 minutes:  " + vwapForLastTenMinutes + " " + USD);
+    System.out.println("Volume  2 minutes:  " + volumeForLastTwoMinutes + " " + BTC);
+    System.out.println("Volume 10 minutes:  " + volumeForLastTenMinutes + " " + BTC);
 
     String priceTrend =
         vwapForLastTwoMinutes.compareTo(vwapForLastTenMinutes) > 0
