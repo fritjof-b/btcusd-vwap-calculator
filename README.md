@@ -26,12 +26,12 @@ Once you've built the project, you can run the application using the following c
 
 `java -jar build/libs/btcusd-1.0.0-release.jar`
 
-When the application starts, it will fetch trade entries from the `Gemini API` and store them in a `Deque`.
+When the application starts, it will fetch trade entries from the `Gemini API` and store them in an in-memory trade history, represented by a Deque.
 The application then starts three tasks:
 
-* [FetchTradeEntriesTask.java](https://github.com/fritjof-b/btcusd-vwap-calculator/blob/main/src/main/java/timertasks/FetchTradeEntriesTask.java) new trade entries from the `Gemini API` every `10 seconds` and adds them to the `Deque`.
-* [CalculateVWAPTask.java](https://github.com/fritjof-b/btcusd-vwap-calculator/blob/main/src/main/java/timertasks/CalculateVWAPTask.java) calculates the `VWAP` for the last `two` and `ten minutes` every `two minutes` and prints the results.
-* [RemoveOldTradesTask.java](https://github.com/fritjof-b/btcusd-vwap-calculator/blob/main/src/main/java/timertasks/RemoveOldTradesTask.java) removes trade entries older than `11 minutes` from the `Deque` every `three minutes`.
+* [FetchTradeEntriesTask.java](https://github.com/fritjof-b/btcusd-vwap-calculator/blob/main/src/main/java/timertasks/FetchTradeEntriesTask.java) fetches new trade entries from the Gemini API every 10 seconds and adds them to the trade history.
+* [CalculateVWAPTask.java](https://github.com/fritjof-b/btcusd-vwap-calculator/blob/main/src/main/java/timertasks/CalculateVWAPTask.java) calculates the VWAP for the last two and ten minutes every two minutes and prints the results.
+* [RemoveOldTradesTask.java](https://github.com/fritjof-b/btcusd-vwap-calculator/blob/main/src/main/java/timertasks/RemoveOldTradesTask.java) removes trade entries older than 11 minutes from the trade history every three minutes.
 
 ## Useful Info
 
