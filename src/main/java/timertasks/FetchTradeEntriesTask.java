@@ -23,7 +23,6 @@ public class FetchTradeEntriesTask extends TimerTask {
       List<TradeEntry> tradeEntries;
       synchronized (tradeHistory) {
         lastTid = tradeHistory.getFirst().getTid();
-        System.out.println("Fetching all trade entries after " + lastTid);
         tradeEntries = geminiApiService.fetchTradeEntriesAfterTid(lastTid);
         tradeEntries.forEach(
             trade -> {
@@ -33,7 +32,6 @@ public class FetchTradeEntriesTask extends TimerTask {
               }
             });
       }
-      System.out.println("Trade history size: " + tradeHistory.size());
     } catch (IOException | InterruptedException e) {
       throw new RuntimeException(e);
     }

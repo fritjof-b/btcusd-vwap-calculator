@@ -19,6 +19,9 @@ public class Main {
     Deque<TradeEntry> tradeHistory =
         new LinkedList<>(geminiApiService.fetchAllTradeEntriesAfterTimestamp(tenMinutesAgo));
 
+    System.out.println("Fetched initial trade history of size " + tradeHistory.size());
+    System.out.println("For timestamp " + tenMinutesAgo);
+
     FetchTradeEntriesTask fetchTradeEntriesTask =
         new FetchTradeEntriesTask(geminiApiService, tradeHistory);
     CalculateVWAPTask calculateVWAPTask = new CalculateVWAPTask(tradeHistory);

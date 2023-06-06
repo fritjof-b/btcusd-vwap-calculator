@@ -50,11 +50,11 @@ public class CalculateVWAPTask extends TimerTask {
       BigDecimal vwapForLastTenMinutes,
       BigDecimal volumeForLastTwoMinutes,
       BigDecimal volumeForLastTenMinutes) {
-    System.out.println("Time of calculation: " + now);
-    System.out.println("VWAP for last 2 minutes: " + vwapForLastTwoMinutes);
-    System.out.println("VWAP for last 10 minutes: " + vwapForLastTenMinutes);
-    System.out.println("Volume for last 2 minutes: " + volumeForLastTwoMinutes);
-    System.out.println("Volume for last 10 minutes: " + volumeForLastTenMinutes);
+    System.out.println("\nTime of calculation: " + now);
+    System.out.println("VWAP    2 minutes:  " + vwapForLastTwoMinutes);
+    System.out.println("VWAP   10 minutes:  " + vwapForLastTenMinutes);
+    System.out.println("Volume  2 minutes:  " + volumeForLastTwoMinutes);
+    System.out.println("Volume 10 minutes:  " + volumeForLastTenMinutes);
 
     String priceTrend =
         vwapForLastTwoMinutes.compareTo(vwapForLastTenMinutes) > 0

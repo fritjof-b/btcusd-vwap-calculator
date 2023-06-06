@@ -42,7 +42,6 @@ public class GeminiApiService {
 
   public List<TradeEntry> fetchAllTradeEntriesAfterTimestamp(Long timestamp)
       throws InterruptedException, IOException {
-    System.out.println("Fetching initial trade entries after timestamp " + timestamp);
     List<TradeEntry> allTradeEntries = new ArrayList<>();
     Long tid = null;
 
