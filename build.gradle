@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'com.diffplug.spotless' version '6.19.0'
+    id 'com.github.johnrengelman.shadow' version '7.1.0'
 }
 
 group 'org.example'
@@ -27,6 +28,15 @@ test {
 spotless {
     java {
         googleJavaFormat()
+    }
+}
+
+shadowJar {
+    archiveBaseName = 'btcusd'
+    archiveVersion = '1.0.0'
+    archiveClassifier = 'release'
+    manifest {
+        attributes 'Main-Class': 'Main'
     }
 }
 
