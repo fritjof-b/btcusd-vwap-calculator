@@ -32,4 +32,9 @@ spotless {
 
 jar {
     archiveBaseName = 'btcusd'
+    archiveVersion = '1.0.0'
+    archiveClassifier = 'release'
+    manifest {
+        attributes 'Main-Class': 'Main'
+    }
 }
