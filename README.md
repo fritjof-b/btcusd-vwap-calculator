@@ -36,8 +36,9 @@ The application then starts three tasks:
 ## Useful Info
 
 The initial call to the Gemini API fetches all trade entries
-from the last ten minutes. We can confirm that this number is correct
-by running the following command (assuming you have [jq](https://stedolan.github.io/jq/) installed):
+from the last ten minutes. We can get a hunch if this number is correct
+by running the following command (assuming you have [jq](https://stedolan.github.io/jq/) installed),
+assuming there are 500 trades or less:
 
 ```bash
 curl https://api.gemini.com/v1/trades/btcusd\?limit_trades\=500\&timestamp\=<TIMESTAMP> | jq length
